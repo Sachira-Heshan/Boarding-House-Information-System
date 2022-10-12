@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Boarding-House-Information-System/static/css/main.073c9b0a.css",
+    "main.js": "/Boarding-House-Information-System/static/js/main.391396e0.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/Boarding-House-Information-System/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/Boarding-House-Information-System/index.html",
+    "main.073c9b0a.css.map": "/Boarding-House-Information-System/static/css/main.073c9b0a.css.map",
+    "main.391396e0.js.map": "/Boarding-House-Information-System/static/js/main.391396e0.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/Boarding-House-Information-System/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.391396e0.js"
+  ]
+}
