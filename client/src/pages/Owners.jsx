@@ -1,6 +1,8 @@
 function Owners(){
     return (
-        <h2>Owners</h2>
+        <div className="container">
+            <h2>Owners</h2>
+        </div>
     );
 }
 
