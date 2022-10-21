@@ -10,9 +10,9 @@ function Boarding(props){
                         <img src={props.img} alt="" className="w-100 h-100" style={{maxWidth: '100%', objectFit: 'cover'}} />
                     </div>
                     <div className="col-7 px-5">
-                        <h3>{props.title}</h3>
+                        <h3>{props.name}</h3>
                         <p> {props.description} </p>
-                        <Link to='/boading?show=3'>
+                        <Link to='/boading?show=id'>
                             <Button variant="outline-primary">Show Details</Button>
                         </Link>
                     </div>

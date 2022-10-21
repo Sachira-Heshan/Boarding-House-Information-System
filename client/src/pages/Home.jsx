@@ -11,7 +11,7 @@ function Home(){
                             
                             <div className="d-flex flex-column col-10 h-50 text-center">
                                 <h1 className="text-white py-3">Looking for a Boarding House?</h1>
-                                <p className="py-3"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, ipsam? Odio distinctio excepturi unde minus nihil blanditiis doloremque quos porro ab aliquid nemo odit sit molestias omnis et, accusantium beatae voluptatum, qui repellendus non officia aut? Delectus sint dignissimos magni eos voluptatum beatae assumenda dolor? </p>
+                                <p className="py-3"> Are you looking for a boarding house near kilinochchi university premises? Don't worry you are in the correct place to find a boarding house for your needs. Basically this is a boarding house information system which helps to boarding house seekers to find boarding houses easily. </p>
                                 <div className="w-50 mx-auto d-flex justify-content-evenly">
                                     <Link to="/boardings">
                                         <Button variant="outline-light" className="rounded-pill px-4">Boardings</Button>

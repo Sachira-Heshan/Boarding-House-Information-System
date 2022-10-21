@@ -34,7 +34,7 @@ function Login(){
     return (
         <>
         <div className="d-flex align-items-center" style={{ height: '100vh' }} >
-            <form className="login container text-center" style={{ maxWidth: '360px' }} id="login" onSubmit={handleSubmit}>
+            <form className="login container text-center" style={{ maxWidth: '380px' }} id="login" onSubmit={handleSubmit}>
                 <h2 className="">Login</h2>
                 <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" className="btn-check" name="btnradio" id="owner" value="owner" checked={type==='owner'} onChange={handleChange}/>

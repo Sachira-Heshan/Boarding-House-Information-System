@@ -42,7 +42,7 @@ function SignUp(){
     return (
         <>
         <div className="container text-center d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <form className="login" style={{ maxWidth: '400px' }} id="login" onSubmit={handleSubmit}>
+            <form className="login" style={{ minWidth: '380px' }} id="login" onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
                 <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" className="btn-check" name="btnradio" id="owner" value="owner" checked={type==='owner'} autoComplete="off" onChange={handleChange}/>

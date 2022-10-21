@@ -1,12 +1,23 @@
-const express = require("express");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import mysql from "mysql2";
+
+import authRoutes from "./routes/auth.js";
+import boardingsRoutes from "./routes/boardings.js";
+import ownersRoutes from "./routes/owners.js";
+import seekersRoutes from "./routes/seekers.js";
+
 const app = express();
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const mysql = require("mysql2");
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/auth", authRoutes);
+app.use("/boardings", boardingsRoutes);
+app.use("/owners", ownersRoutes);
+app.use("/seekers", seekersRoutes);
 
 const db = mysql.createPool({
   host: "localhost",
@@ -16,7 +27,7 @@ const db = mysql.createPool({
 });
 
 app.get("/", (req, res) => {
-  res.send("Testing Express!");
+  res.json("Express!");
 });
 
 app.post("/register", (req, res) => {
@@ -66,6 +77,32 @@ app.post("/auth", (req, res) => {
       res.send(result);
     } else {
       res.send({ message: "Wrong username or password!" });
+    }
+  });
+});
+
+app.get("/owners", (req, res) => {
+  const sqlSelect = "SELECT owner_id, name, address, tele_no FROM owner;";
+
+  const queryOwn = db.query(sqlSelect, (err, result) => {
+    if (err) {
+      res.send({ err: err });
+    } else {
+      console.log(result);
+      res.send(result);
+    }
+  });
+});
+
+app.get("/boardings", (req, res) => {
+  const sqlSelect = "SELECT * FROM boarding_house;";
+
+  const queryBoardings = db.query(sqlSelect, (err, result) => {
+    if (err) {
+      res.send({ err: err });
+    } else {
+      console.log(result);
+      res.send(result);
     }
   });
 });
