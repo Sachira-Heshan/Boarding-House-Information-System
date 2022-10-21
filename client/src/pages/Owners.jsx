@@ -3,7 +3,7 @@ import Owner from "../components/Owner";
 function Owners(){
     return (
         <>
-        <h2 className="container text-center py-2">Owners</h2>
+        <h2 className="container text-center pt-4 pb-2">Owners</h2>
         <div className="container d-flex flex-wrap">
 
             <Owner name="Jenna" img="https://images.pexels.com/photos/2169434/pexels-photo-2169434.jpeg"/>

@@ -33,31 +33,32 @@ function Login(){
 
     return (
         <>
-        <form className="login container" id="login" onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" className="btn-check" name="btnradio" id="owner" value="owner" checked={type==='owner'} onChange={handleChange}/>
-                <label className="btn btn-outline-primary" htmlFor="owner">Boarding Owner</label>
-
-                <input type="radio" className="btn-check" name="btnradio" id="seeker" value="seeker" checked={type==='seeker'} onChange={handleChange}/>
-                <label className="btn btn-outline-primary" htmlFor="seeker">Boarding Seeker</label>
-            </div>
-            <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" className="form-control" id="email" value={email} placeholder="Enter email" onChange={(e) => {
-                    setEmail(e.target.value);
-                }}/>
-                <label htmlFor="password">Password</label>
-                <input type="password" className="form-control" id="password" value={password} placeholder="Enter password" onChange={(e) => {
-                    setPassword(e.target.value);
-                }}/>
-            </div>
-            <p className="text-danger">{loginStatus}</p>
-            <div>
-                <p>Haven't an account yet? <span className="register"><Link to="/signup">Register here</Link></span></p>
-            </div>
-            <button type="submit" className="btn btn-primary">Login</button>
-        </form>
+        <div className="d-flex align-items-center" style={{ height: '100vh' }} >
+            <form className="login container text-center" style={{ maxWidth: '360px' }} id="login" onSubmit={handleSubmit}>
+                <h2 className="">Login</h2>
+                <div className="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" className="btn-check" name="btnradio" id="owner" value="owner" checked={type==='owner'} onChange={handleChange}/>
+                    <label className="btn btn-outline-primary" htmlFor="owner">Boarding Owner</label>
+                    <input type="radio" className="btn-check" name="btnradio" id="seeker" value="seeker" checked={type==='seeker'} onChange={handleChange}/>
+                    <label className="btn btn-outline-primary" htmlFor="seeker">Boarding Seeker</label>
+                </div>
+                <div className="form-group text-start">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" className="form-control" id="email" value={email} placeholder="Enter email" onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}/>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" className="form-control" id="password" value={password} placeholder="Enter password" onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}/>
+                </div>
+                <p className="text-danger pt-3">{loginStatus}</p>
+                <div>
+                    <p>Haven't an account yet? <span className="register"><Link to="/signup">Register here</Link></span></p>
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
         </>
     );
 }
