@@ -1,7 +1,7 @@
-import Axios from 'axios';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-import {useState} from 'react'; 
+import {useContext, useState} from 'react'; 
+import {AuthContext} from '../context/authContext';
 
 function Login(){
 
@@ -9,26 +9,29 @@ function Login(){
     const [password, setPassword] = useState('');
     const [type, setType] = useState('seeker');
 
-    const [loginStatus, setLoginStatus] = useState('');
+    const [error, setError] = useState('');
 
     const handleChange  = e => {
         console.log(e.target.value);
         setType(e.target.value);
     };
-
+    
+    const inputs = {type, email, password};
+    
     const navigate = useNavigate();
 
-    const handleSubmit = e => {
+    const {login} = useContext(AuthContext);
+
+    const handleSubmit = async e => {
         e.preventDefault();
-        console.log(email, password, type);
-        Axios.post('http://localhost:3001/auth', {type: type, email: email, password: password}).then((response) => {
-            console.log(response.data);
-            if(response.data.message){
-                setLoginStatus(response.data.message);
-            }else{
-                navigate('/');
-            }
-        });
+        
+        try{
+            await login(inputs);
+            navigate('/');
+        }
+        catch(err) {
+            setError(err.response.data);
+        };
     }
 
     return (
@@ -52,7 +55,7 @@ function Login(){
                         setPassword(e.target.value);
                     }}/>
                 </div>
-                <p className="text-danger pt-3">{loginStatus}</p>
+                {error && <p className="text-danger pt-3">{error}</p>}
                 <div>
                     <p>Haven't an account yet? <span className="register"><Link to="/signup">Register here</Link></span></p>
                 </div>

@@ -1,5 +1,5 @@
-import Axios from 'axios';
-import {Link} from 'react-router-dom';
+import axios from 'axios';
+import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react'; 
 
 
@@ -14,8 +14,11 @@ function SignUp(){
     const [telephone, setTelephone] = useState('');
     const [type, setType] = useState('seeker');
 
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+
     const handleChange = e => {
-        console.log(e.target.value);
         setType(e.target.value);
     }
 
@@ -24,13 +27,17 @@ function SignUp(){
         setGender(e.target.value);
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        console.log(name, username, email, password, type);
-        Axios.post('http://localhost:3001/register', {type: type, name: name, username: username, email: email, password: password, address: address, gender: gender, telephone: telephone}).then((response) => {
-            console.log(response.data);
-            alert("Successfully Registered!");
+        await axios.post('/auth/register', {type: type, name: name, username: username, email: email, password: password, address: address, gender: gender, telephone: telephone})
+        .then(function (response) {
+            console.log(response);
+            navigate('/login');
+        })
+        .catch(function (error) {
+            setError(error.response.data);
         });
+        
         setEmail('');
         setPassword('');
         setName('');
@@ -82,6 +89,7 @@ function SignUp(){
                         setTelephone(e.target.value);
                     }}/>
                 </div>
+                <div className="text-danger pt-3">{error && <p>{error}</p>}</div>
                 <div>
                     <p>Already have an account? <span className="login"><Link to="/login">Login here</Link></span></p>
                 </div>
