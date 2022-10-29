@@ -81,12 +81,36 @@ function Boarding() {
 
   const navigate = useNavigate();
 
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const data = {
+      boarding_name: name,
+      //owner_id: ownerUsername,
+      address: address,
+      no_of_rooms: noOfRooms,
+      max_no_of_people: noOfMaxPeople,
+      rent_period: rentPeriod,
+      monthly_fee: monthlyFee,
+      description: description,
+    };
+    try {
+      const res = await axios.put(
+        `http://localhost:3001/boardings/${id}`,
+        data
+      );
+      console.log(res.data);
+      setShow(false);
+      navigate("/boardings");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleDelete = async (e) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Are you sure you want to delete this boarding?")) {
       e.preventDefault();
       try {
-        console.log(id);
         await axios.delete(`http://localhost:3001/boardings/${id}`);
         navigate("/boardings");
       } catch (err) {
@@ -260,7 +284,9 @@ function Boarding() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary">Update</Button>
+              <Button onClick={handleUpdate} variant="primary">
+                Update
+              </Button>
             </Modal.Footer>
           </Modal>
         </div>

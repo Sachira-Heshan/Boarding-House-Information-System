@@ -15,10 +15,16 @@ export const AuthContextProvider = ({ children }) => {
     setCurrentUser(res.data);
   };
 
-  const logout = async (inputs) => {
+  const logout = async () => {
     await axios.post("/auth/logout");
     setCurrentUser(null);
   };
+
+  // const checkOwner = async () => {
+  //   const res = await axios.get("/auth/checkOwner");
+  //   console.log(res);
+  //   return res.data;
+  // };
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
