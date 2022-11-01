@@ -38,7 +38,7 @@ function Boardings() {
   const handleAddBoarding = async (e) => {
     //e.preventDefault();
     const data = {
-      owner_id: 7, //currentUser.id,
+      owner_id: 8, //currentUser.id,
       boarding_name: name,
       address: address,
       no_of_rooms: noOfRooms,

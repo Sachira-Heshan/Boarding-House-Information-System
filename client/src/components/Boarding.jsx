@@ -19,7 +19,6 @@ function Boarding(props) {
           <div className="col-7 px-5">
             <h3>{props.name}</h3>
             <p> {props.description} </p>
-            <p> {props.id} </p>
             <Button
               onClick={(e) => {
                 e.preventDefault();

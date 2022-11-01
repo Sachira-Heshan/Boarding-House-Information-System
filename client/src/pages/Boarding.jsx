@@ -126,7 +126,7 @@ function Boarding() {
           <h2>Boarding</h2>
           <img
             className="w-75"
-            src="https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg" //{boarding.img}
+            src={boarding.img} //"https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg" //{boarding.img}
             alt=""
           />
           <h3>Boarding Name: {boarding.boarding_name}</h3>
