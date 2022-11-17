@@ -11,7 +11,6 @@ function Login() {
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     setType(e.target.value);
   };
 

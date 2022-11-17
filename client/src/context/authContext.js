@@ -20,12 +20,6 @@ export const AuthContextProvider = ({ children }) => {
     setCurrentUser(null);
   };
 
-  // const checkOwner = async () => {
-  //   const res = await axios.get("/auth/checkOwner");
-  //   console.log(res);
-  //   return res.data;
-  // };
-
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
