@@ -36,9 +36,8 @@ function Boardings() {
   const [description, setDescription] = useState("");
 
   const handleAddBoarding = async (e) => {
-    //e.preventDefault();
     const data = {
-      owner_id: 8, //currentUser.id,
+      owner_id: 12, //currentUser.id,
       boarding_name: name,
       address: address,
       no_of_rooms: noOfRooms,
@@ -57,21 +56,9 @@ function Boardings() {
     }
   };
 
-  // const isOwner = async () => {
-  //   console.log(currentUser.id);
-  //   if (currentUser) {
-  //     try {
-  //       const res = await checkOwner({ id: currentUser.id });
-  //       console.log(res);
-  //       return res;
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   } else {
-  //     return false;
-  //   }
-  // };
-  // isOwner();
+  const handleSearch = (e) => {
+    navigate("/boardings/search");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,7 +70,7 @@ function Boardings() {
       }
     };
     fetchData();
-  }, [owner]);
+  }, [owner, boardings]);
 
   return (
     <div className="container">
@@ -99,6 +86,11 @@ function Boardings() {
             Add Boarding
           </Button>
         )}
+        <div className="d-flex">
+          <button type="button" className="btn btn-dark" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
       </div>
       <div className="d-flex flex-wrap">
         {boardings.map((boarding) => {

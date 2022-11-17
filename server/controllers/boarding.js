@@ -11,6 +11,36 @@ export const getBoardings = async (req, res) => {
   });
 };
 
+// export const searchBoarding = async (req, res) => {
+//   const q = "SELECT * FROM boarding_house bh WHERE bh.max_no_of_people > ?;";
+//   db.query(q, [req.body.no_of_maximum_people], (err, result) => {
+//     if (err) return res.status(500).json(err);
+//     if (result.length === 0)
+//       return res.status(404).json({ message: "No boarding house found." });
+//     return res.status(200).json(result);
+//   });
+// };
+
+export const searchBoarding = async (req, res) => {
+  // const q = "SELECT * FROM boarding_house bh WHERE bh.address LIKE '%?%';";
+  // //console.log(q);
+  // db.query(q, [req.body.search_place], (err, result) => {
+  //   if (err) return res.status(500).json(err);
+  //   if (result.length === 0)
+  //     return res.status(404).json({ message: "No boarding house found." });
+  //   //console.log(result);
+  //   return res.status(200).json(result);
+  // });
+
+  const q = "SELECT * FROM boarding_house;";
+  db.query(q, (err, result) => {
+    if (err) return res.status(500).json(err);
+    return res.status(200).json(result);
+  });
+};
+
+//
+
 export const getBoarding = async (req, res) => {
   const q = "SELECT * FROM boarding_house bh WHERE bh.boarding_id = ?;";
   db.query(q, [req.params.id], (err, result) => {

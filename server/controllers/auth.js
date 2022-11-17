@@ -70,12 +70,3 @@ export const logout = async (req, res) => {
     .status(200)
     .json("Logged out successfully!");
 };
-
-// export const checkOwner = async (req, res) => {
-//   const q = "SELECT * FROM owners WHERE id = ?;";
-//   db.query(q, [req.body.id], (req, result) => {
-//     if (err) return res.status(404).json(false);
-//     if (result.length === 0) return res.status(404).json(false);
-//     return res.status(200).json(true);
-//   });
-// };

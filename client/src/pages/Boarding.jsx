@@ -47,29 +47,6 @@ function Boarding() {
     console.log("Boarding Name From State: " + name);
   };
 
-  // const handleEdit = (e) => {
-  //   e.preventDefault();
-  //   const data = {
-  //     boarding_name: name,
-  //     owner_id: ownerUsername,
-  //     address: address,
-  //     no_of_rooms: noOfRooms,
-  //     max_no_of_people: noOfMaxPeople,
-  //     rent_period: rentPeriod,
-  //     monthly_fee: monthlyFee,
-  //     description: description,
-  //   };
-  //   axios
-  //     .put(`http://localhost:3001/boardings/${id}`, data)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setShow(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -124,15 +101,12 @@ function Boarding() {
       <div className="boarding">
         <div className="boarding__container container">
           <h2>Boarding</h2>
-          <img
-            className="w-75"
-            src={boarding.img} //"https://images.pexels.com/photos/164558/pexels-photo-164558.jpeg" //{boarding.img}
-            alt=""
-          />
+          <img className="w-75" src={boarding.img} alt="" />
           <h3>Boarding Name: {boarding.boarding_name}</h3>
           <p>Boarding Address: {boarding.address}</p>
           <p>Boarding Description: {boarding.description}</p>
           <p>Boarding Monthly Fee: {boarding.monthly_fee}</p>
+          <p>Maximum Number of People Can Stay: {boarding.max_no_of_people}</p>
           <h4>Boarding Stuffs: </h4>
           <p>Asset Name: Quantity</p>
           {/* <p>

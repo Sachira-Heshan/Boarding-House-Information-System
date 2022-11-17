@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.js";
 import boardingsRoutes from "./routes/boardings.js";
 import ownersRoutes from "./routes/owners.js";
 import seekersRoutes from "./routes/seekers.js";
+import searchRoutes from "./routes/search.js";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use("/auth", authRoutes);
 app.use("/boardings", boardingsRoutes);
 app.use("/owners", ownersRoutes);
 app.use("/seekers", seekersRoutes);
+app.use("/search", searchRoutes);
 
 app.get("/", (req, res) => {
   res.json("Express!");

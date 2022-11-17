@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Boarding from "./pages/Boarding";
+import Search from "./pages/Search";
 
 const Layout = () => {
   return (
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/boardings/:id",
         element: <Boarding />,
+      },
+      {
+        path: "/boardings/search",
+        element: <Search />,
       },
     ],
   },
